@@ -26,7 +26,6 @@ call plug#begin('~/.vim/plugged')
 	Plug 'AtsushiM/search-parent.vim', {'for': ['sass', 'scss']}
 	Plug 'AtsushiM/sass-compile.vim', {'for': ['sass', 'scss']}
 	Plug 'othree/yajs.vim', {'for': 'javascript'}
-	Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'tomasr/molokai'
@@ -153,7 +152,7 @@ let g:neocomplete#enable_smart_case=1
 let g:neocomplete#max_list=20
 " _区切り補完有効化
 let g:neocomplete#enable_underbar_completion=1
-" 3文字でインタックスをキャッシュ
+" 3文字でシンタックスをキャッシュ
 let g:neocomplete#source#syntax#min_keyword_length=3
 " 補完表示最小文字数
 let g:neocomplete#enable_auto_completion_start_length=2
@@ -190,14 +189,6 @@ let g:airline#extensions#tabline#let_alt_sep='|'
 
 "//////////////////////////////////////////////////
 
-"--------------------------------------------------
-" typescript
-"--------------------------------------------------
-
-autocmd BufRead,BufNewFile *.ts set filetype=typescript
-let g:typescript_compiler_binary='tsc'
-let g:typescript_compiler_options=''
-
 "//////////////////////////////////////////////////
 
 "--------------------------------------------------
@@ -227,23 +218,3 @@ augroup end
 let g:previm_open_cmd=''
 
 "//////////////////////////////////////////////////
-
-"//////////////////////////////////////////////////
-
-"template
-
-"==================================================
-"
-"==================================================
-
-
-"--------------------------------------------------
-"
-"--------------------------------------------------
-
-
-"//////////////////////////////////////////////////
-
-
-
-
