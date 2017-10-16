@@ -53,6 +53,7 @@ path=(
 )
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+eval "$(goenv init -)"
 
 #
 # Less
