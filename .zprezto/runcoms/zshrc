@@ -17,6 +17,8 @@ export G015VENDOREXPERIMENT=1
 # Pyenv
 export PYENV_ROOT=$HOME/.pyenv
 
+alias qlot="~/.roswell/bin/qlot"
+
 # Key bind
 bindkey -M viins 'jj' vi-cmd-mode
 
