@@ -24,6 +24,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'jacoborus/tender.vim'
 	Plug 'darthmall/vim-vue', {'for': 'vue' }
+	Plug 'elmcast/elm-vim', {'for': 'elm'}
 call plug#end()
 
 "//////////////////////////////////////////////////
