@@ -82,6 +82,8 @@ set hidden
 set list
 " 不可視文字の書式設定
 set listchars=tab:\|_,trail:_,eol:$,extends:>,precedes:<,nbsp:%
+" 補完時はポップアップのみ設定
+set completeopt=menuone
 " ftplugin
 filetype plugin indent on
 
