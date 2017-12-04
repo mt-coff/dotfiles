@@ -33,6 +33,8 @@ call plug#begin('~/.vim/plugged')
 	Plug 'jacoborus/tender.vim'
 	Plug 'darthmall/vim-vue', {'for': 'vue' }
 	Plug 'elmcast/elm-vim', {'for': 'elm'}
+	Plug 'cohama/lexima.vim'
+	Plug 'thinca/vim-quickrun'
 call plug#end()
 
 
@@ -81,7 +83,7 @@ set hidden
 " 不可視文字の可視化
 set list
 " 不可視文字の書式設定
-set listchars=tab:\|_,trail:_,eol:$,extends:>,precedes:<,nbsp:%
+set listchars=tab:\|\ ,trail:_,eol:$,extends:>,precedes:<,nbsp:%
 " 補完時はポップアップのみ設定
 set completeopt=menuone
 " ftplugin
@@ -165,6 +167,14 @@ let g:airline#extensions#tabline#let_alt_sep='|'
 "--------------------------------------------------
 
 	let g:airline#extensions#ale#enabled = 1
+
+"//////////////////////////////////////////////////
+
+"--------------------------------------------------
+" Lexima
+"--------------------------------------------------
+
+	let g:lexima_enable_basic_rules = 1
 
 "//////////////////////////////////////////////////
 
