@@ -48,7 +48,12 @@ path=(
   /usr/local/{bin,sbin}(N-/)
   $GOPATH/bin(N-/)
   /usr/local/bin/powerline
-  $path
+  $JAVA_HOME(N-/)
+  $ANDROID_HOME/bin(N-/)
+  $ANDROID_HOME/tools
+  $ANDROID_HOME/platform-tools
+  `yarn global bin`
+  $PATH
 )
 # eval "$(pyenv init -)"
 # eval "$(pyenv virtualenv-init -)"
