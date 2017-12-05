@@ -53,7 +53,7 @@ path=(
   $ANDROID_HOME/tools
   $ANDROID_HOME/platform-tools
   `yarn global bin`
-  $PATH
+  $path
 )
 # eval "$(pyenv init -)"
 # eval "$(pyenv virtualenv-init -)"
