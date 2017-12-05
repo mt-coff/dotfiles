@@ -46,14 +46,13 @@ typeset -gU cdpath fpath mailpath path
 # Set the list of directories that Zsh searches for programs.
 path=(
   /usr/local/{bin,sbin}(N-/)
-  $PYENV_ROOT/bin(N-/)
   $GOPATH/bin(N-/)
   /usr/local/bin/powerline
-  $PATH
+  $path
 )
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-eval "$(goenv init -)"
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
+# eval "$(goenv init -)"
 
 #
 # Less

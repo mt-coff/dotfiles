@@ -18,8 +18,8 @@ call plug#begin('~/.vim/plugged')
 	else
 		Plug 'Shougo/neocomplcache'
 	endif
-	Plug 'Shougo/neosnippet'
-	Plug 'Shougo/neosnippet-snippets'
+ 	Plug 'Shougo/neosnippet'
+ 	Plug 'Shougo/neosnippet-snippets'
 	Plug 'honza/vim-snippets'
 	Plug 'w0rp/ale'
 	Plug 'fatih/vim-go', {'for': 'go'}
@@ -28,11 +28,13 @@ call plug#begin('~/.vim/plugged')
 	Plug 'mattn/emmet-vim', {'for': ['html', 'php', 'css', 'markdown', 'vue']}
 	Plug 'posva/vim-vue', {'for': 'vue'}
 	Plug 'othree/yajs.vim', {'for': 'javascript'}
+	Plug 'ternjs/tern_for_vim', {'for': ['javascript', 'vue'], 'do': 'npm install -g'}
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'jacoborus/tender.vim'
 	Plug 'darthmall/vim-vue', {'for': 'vue' }
 	Plug 'elmcast/elm-vim', {'for': 'elm'}
+	Plug 'cohama/lexima.vim'
 call plug#end()
 
 
@@ -167,6 +169,13 @@ let g:airline#extensions#tabline#let_alt_sep='|'
 "//////////////////////////////////////////////////
 
 "--------------------------------------------------
+" Lexima
+"--------------------------------------------------
+
+	let g:lexima_enable_basic_rules = 1
+
+"//////////////////////////////////////////////////
+"--------------------------------------------------
 " completion & snippets
 "--------------------------------------------------
 
@@ -178,7 +187,7 @@ if has("lua")
 	" Use smartcase.
 	let g:neocomplete#enable_smart_case = 1
 	" Set minimum syntax keyword length.
-	let g:neocomplete#sources#syntax#min_keyword_length = 3
+	let g:neocomplete#sources#syntax#min_keyword_length = 1
 
 	" Define dictionary.
 	let g:neocomplete#sources#dictionary#dictionaries = {
@@ -218,7 +227,7 @@ else
 	" Use smartcase.
 	let g:neocomplcache_enable_smart_case = 1
 	" Set minimum syntax keyword length.
-	let g:neocomplcache_min_syntax_length = 3
+	let g:neocomplcache_min_syntax_length = 1
 	let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
 	" Define dictionary.
@@ -249,6 +258,7 @@ endif
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
+
 
 imap <expr><TAB>
 \ pumvisible() ? "\<C-n>" :
