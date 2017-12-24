@@ -3,6 +3,6 @@
 vim/plugged
 vim/view
 nvim/plugged
-fish/
+fish/*
 !fish/functions
 !fish/config.fish
