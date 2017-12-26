@@ -51,8 +51,9 @@ set encoding=utf-8
 set fileencoding=utf-8
 set termencoding=utf-8
 " インデント
-set tabstop=4
-set shiftwidth=4
+set expandtab
+set tabstop=2
+set shiftwidth=2
 set autoindent
 set smartindent
 " シンタックスハイライトを有効に
