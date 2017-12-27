@@ -31,6 +31,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'mattn/emmet-vim', {'for': ['html', 'css', 'markdown', 'vue']}
   Plug 'posva/vim-vue', {'for': 'vue'}
   Plug 'othree/yajs.vim', {'for': 'javascript'}
+  Plug 'carlitux/deoplete-ternjs', {'do': 'npm install -g tern'}
 call plug#end()
 
 "//////////////////////////////////////////////////
@@ -72,4 +73,10 @@ endif
 
 let g:neosnippet#snippets_directory='~/.vim/plugged/vim-snippets/snippets'
 
+" deoplete-ternjs
+let g:deoplete#sources#ternjs#filetypes = [
+  \ 'jsx',
+  \ 'javascript.jsx',
+  \ 'vue',
+  \ ]
 "//////////////////////////////////////////////////

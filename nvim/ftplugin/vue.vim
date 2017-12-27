@@ -1,5 +1,3 @@
-autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
-
 "emmet
 let g:user_emmet_leader_key='<C-t>'
 
