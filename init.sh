@@ -86,6 +86,27 @@ while true; do
   fi
 done
 
+# zsh
+while true; do
+  echo -n "Do you use zsh? [y/n]:"
+  read ans
+  if [ -z $ans ] ; then
+    continue
+  elif [ $ans = 'y' ] || [ $ans = 'yes' ] ; then
+    ln -sf ~/dotfiles/zsh/zlogin ~/.zlogin
+    ln -sf ~/dotfiles/zsh/zlogout ~/.zlogout
+    ln -sf ~/dotfiles/zsh/zshenv ~/.zshenv
+    ln -sf ~/dotfiles/zsh/zprofile ~/.zprofile
+    ln -sf ~/dotfiles/zsh/zshrc ~/.zshrc
+    break
+  elif [ $ans = 'n' ] || [ $ans = 'no' ]; then
+    echo "Skipped!"
+    break
+  else
+    continue
+  fi
+done
+
 # global gitignore
 ln -sf ~/dotfiles/commons/gitignore_global ~/.gitignore_global
 git config --global core.excludesfile ~/.gitignore_global
