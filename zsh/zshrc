@@ -1,0 +1,105 @@
+#==================================================
+# autoload
+#==================================================
+
+autoload -Uz colors && colors
+autoload -Uz compinit && compinit
+autoload -Uz promptinit && promptinit
+autoload -Uz vcs_info && vcs_info
+
+#==================================================
+# options
+#==================================================
+
+setopt share_history
+setopt histignorealldups
+setopt auto_cd
+setopt prompt_subst
+
+#==================================================
+# History
+#==================================================
+
+export HISTFILE=~/.zhistory
+export HISTSIZE=5000
+export SAVEHIST=10000
+
+#==================================================
+# Key
+#==================================================
+
+bindkey -v
+bindkey -M viins 'jj' vi-cmd-mode
+
+#==================================================
+# Aliases
+#==================================================
+
+alias _=sudo
+alias g='git'
+alias gco='git checkout'
+alias la='ls -a'
+alias ll='ls -l'
+alias cd='nocorrect cd'
+alias cp='nocorrect cp -i'
+alias mkdir='nocorrect mkdir -p'
+alias mv='nocorrect mv -i'
+alias rm='nocorrect rm -i'
+alias ln='nocorrect ln -i'
+
+#==================================================
+# yarn
+#==================================================
+
+[[ -f /usr/local/lib/node_modules/yarn-completions/node_modules/tabtab/.completions/yarn.zsh ]] && . /usr/local/lib/node_modules/yarn-completions/node_modules/tabtab/.completions/yarn.zsh
+
+
+#==================================================
+# Prompt
+#==================================================
+
+separator=''
+
+# VIMODE setting
+VIMODE="%K{green}%F{white} INSERT %f%k"
+function zle-keymap-select {
+  VINORMAL="%K{yellow}%F{white} NORMAL %f%k"
+  VIINSERT="%K{green}%F{white} INSERT %f%k"
+  VIMODE="${${KEYMAP/vicmd/$VINORMAL}/(main|viins)/$VIINSERT}"
+  zle reset-prompt
+}
+zle -N zle-keymap-select
+
+function name_prompt {
+  echo "%K{black}%F{red}@%F{black}%n %f%k"
+}
+
+function dir_prompt {
+  echo "%K{blue}%F{white}${separator} %(5~,%-2~...%2~,%~) %f%k"
+}
+
+function git_prompt {
+  if [[ "$PWD" =~ '/\.git(/.*)?$' ]]; then
+    echo "%F{black}${separator}%f"
+    return 1
+  fi
+  if [[ $(command git rev-parse --is-inside-work-tree 2> /dev/null) != 'true' ]]; then
+    echo "%F{black}${separator}%f"
+    return 1
+  fi
+  echo "%K{green}%F{white}${separator} ${vcs_info_msg_0_} %f%k%F{green}${separator}%f"
+}
+
+zstyle ':vcs_info:*' max-exports 3
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git:*' formats '⭠ %b'
+zstyle ':vcs_info:git:*' actionformats '⭠ %b%a'
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr "+"
+zstyle ':vcs_info:git:*' unstagedstr "-"
+
+precmd() { vcs_info }
+
+PROMPT='${VIMODE}$(dir_prompt)$(git_prompt)
+$separator'
+RPROMPT='%F{blue}[%F{green}%D{%H:%M:%S}%F{blue}]%f'
