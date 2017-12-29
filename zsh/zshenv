@@ -1,0 +1,41 @@
+#
+# Language
+#
+
+LANG='en_US.UTF-8'
+LANGUAGE='en'
+
+#
+# pyenv
+#
+
+export PYENV_ROOT=$HOME/.pyenv
+
+#
+# JAVA & Android
+#
+
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+export ANDROID_HOME=$HOME/Library/Android/sdk
+
+#
+# GO
+#
+
+export GOPATH=$HOME/dev/go
+
+#
+# Path
+#
+
+path=(
+  /usr/local/{bin,sbin}(N-/)
+  /usr/local/bin/powerline
+  $GOPATH/bin(N-/)
+  $JAVA_HOME(N-/)
+  $ANDROID_HOME/bin(N-/)
+  $ANDROID_HOME/tools
+  $ANDROID_HOME/platform-tools
+  `yarn global bin`
+  $path
+)
