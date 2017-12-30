@@ -67,6 +67,7 @@ function zle-keymap-select {
   VIINSERT="%K{green}%F{white} INSERT %f%k"
   VIMODE="${${KEYMAP/vicmd/$VINORMAL}/(main|viins)/$VIINSERT}"
   zle reset-prompt
+  VIMODE="%K{green}%F{white} INSERT %f%k"
 }
 zle -N zle-keymap-select
 
