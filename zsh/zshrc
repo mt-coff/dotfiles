@@ -8,6 +8,12 @@ autoload -Uz promptinit && promptinit
 autoload -Uz vcs_info && vcs_info
 
 #==================================================
+# completion
+#==================================================
+
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
+
+#==================================================
 # colors
 #==================================================
 
