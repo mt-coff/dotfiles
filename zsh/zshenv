@@ -36,6 +36,5 @@ path=(
   $ANDROID_HOME/bin(N-/)
   $ANDROID_HOME/tools
   $ANDROID_HOME/platform-tools
-  `yarn global bin`
   $path
 )
