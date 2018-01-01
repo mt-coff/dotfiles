@@ -34,8 +34,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'carlitux/deoplete-ternjs', {'do': 'npm install -g tern'}
 call plug#end()
 
-"//////////////////////////////////////////////////
-
 "==================================================
 " plugins setting
 "==================================================
@@ -79,4 +77,3 @@ let g:deoplete#sources#ternjs#filetypes = [
   \ 'javascript.jsx',
   \ 'vue',
   \ ]
-"//////////////////////////////////////////////////
