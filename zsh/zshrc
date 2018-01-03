@@ -6,6 +6,7 @@ autoload -Uz colors && colors
 autoload -Uz compinit && compinit
 autoload -Uz promptinit && promptinit
 autoload -Uz vcs_info && vcs_info
+autoload -Uz add-zsh-hook
 
 #==================================================
 # completion
@@ -94,6 +95,14 @@ function dir_prompt {
   echo "%K{blue}%F{white}${separator} %(5~,%-2~...%2~,%~) %f%k"
 }
 
+function _update_vcs_info_msg() {
+  psvar=()
+  LANG=en_US.UTF-8 vcs_info
+  [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+}
+
+add-zsh-hook precmd _update_vcs_info_msg
+
 function git_prompt {
   if [[ "$PWD" =~ '/\.git(/.*)?$' ]]; then
     echo "%F{black}${separator}%f"
@@ -108,8 +117,8 @@ function git_prompt {
 
 zstyle ':vcs_info:*' max-exports 3
 zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:git:*' formats '⭠ %b'
-zstyle ':vcs_info:git:*' actionformats '⭠ %b%a'
+zstyle ':vcs_info:git:*' formats '⭠ %b %c%u'
+zstyle ':vcs_info:git:*' actionformats '⭠ %b %a%c%u'
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' stagedstr "+"
 zstyle ':vcs_info:git:*' unstagedstr "-"
