@@ -23,6 +23,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'cohama/lexima.vim'
   Plug 'itchyny/lightline.vim'
   Plug 'w0rp/ale'
+  Plug 'bronson/vim-trailing-whitespace'
+  Plug 'Shougo/unite.vim'
+  Plug 'lambdalisue/gina.vim'
   " color
   Plug 'altercation/vim-colors-solarized'
   " langages
