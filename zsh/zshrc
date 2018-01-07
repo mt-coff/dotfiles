@@ -31,6 +31,7 @@ setopt share_history
 setopt histignorealldups
 setopt auto_cd
 setopt prompt_subst
+setopt correct
 
 #==================================================
 # History
