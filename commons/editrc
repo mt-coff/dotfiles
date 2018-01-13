@@ -1,0 +1,2 @@
+bind -v
+bind  -s 'jj' '\e'
