@@ -55,6 +55,7 @@ bindkey -M viins 'jj' vi-cmd-mode
 alias _=sudo
 alias g='git'
 alias gco='git checkout'
+alias l='ls'
 alias la='ls -a'
 alias ll='ls -l'
 alias cd='nocorrect cd'
