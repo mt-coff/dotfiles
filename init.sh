@@ -110,3 +110,6 @@ done
 # global gitignore
 ln -sf ~/dotfiles/commons/gitignore_global ~/.gitignore_global
 git config --global core.excludesfile ~/.gitignore_global
+
+# editrc
+ln -sf ~/dotfiles/commons/editrc ~/.editrc
