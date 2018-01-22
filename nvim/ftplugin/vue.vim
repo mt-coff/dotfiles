@@ -1,5 +1,5 @@
 "emmet
-let g:user_emmet_leader_key='<C-t>'
+let g:user_emmet_leader_key='<C-y>'
 
 "ale
 let g:ale_linters = {
