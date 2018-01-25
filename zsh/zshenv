@@ -6,10 +6,13 @@ LANG='en_US.UTF-8'
 LANGUAGE='en'
 
 #==================================================
-# pyenv
+# anyenv
 #==================================================
 
-export PYENV_ROOT=$HOME/.pyenv
+if [ -d $HOME/.anyenv ]; then
+  export PATH=$HOME/.anyenv/bin:$PATH
+  eval "$(anyenv init -)"
+fi
 
 #==================================================
 # JAVA & Android
