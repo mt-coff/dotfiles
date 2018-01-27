@@ -9,10 +9,10 @@ LANGUAGE='en'
 # anyenv
 #==================================================
 
-if [ -d $HOME/.anyenv ]; then
-  export PATH=$HOME/.anyenv/bin:$PATH
+export ANYENV_ROOT=$HOME/.anyenv
 
-  for D in `ls $HOME/.anyenv/envs`
+if [ -d $HOME/.anyenv ]; then
+  for D in `ls $ANYENV_ROOT/envs`
   do
     export PATH=$HOME/.anyenv/envs/$D/shims:$PATH
   done
@@ -44,5 +44,6 @@ path=(
   $ANDROID_HOME/bin(N-/)
   $ANDROID_HOME/tools
   $ANDROID_HOME/platform-tools
+  $ANYENV_ROOT/bin(N-/)
   $path
 )
