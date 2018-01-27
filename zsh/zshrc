@@ -71,6 +71,11 @@ alias ln='nocorrect ln -i'
 
 [[ -f /usr/local/lib/node_modules/yarn-completions/node_modules/tabtab/.completions/yarn.zsh ]] && . /usr/local/lib/node_modules/yarn-completions/node_modules/tabtab/.completions/yarn.zsh
 
+#==================================================
+# anyenv
+#==================================================
+
+eval "$(anyenv init -)"
 
 #==================================================
 # Prompt
