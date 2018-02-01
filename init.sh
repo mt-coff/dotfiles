@@ -69,23 +69,6 @@ while true; do
   fi
 done
 
-# fish
-while true; do
-  echo -n "Do you use fish? [y/n]:"
-  read ans
-  if [ -z $ans ] ; then
-    continue
-  elif [ $ans = 'y' ] || [ $ans = 'yes' ] ; then
-    ln -snf ~/dotfiles/fish ~/.config/fish
-    break
-  elif [ $ans = 'n' ] || [ $ans = 'no' ]; then
-    echo "Skipped!"
-    break
-  else
-    continue
-  fi
-done
-
 # zsh
 while true; do
   echo -n "Do you use zsh? [y/n]:"

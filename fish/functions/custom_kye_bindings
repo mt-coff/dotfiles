@@ -1,5 +1,0 @@
-function custom_kye_bindings
-	fish_vi_kye_bindings
-	bind -M insert jj force-repaint
-end
-set -g fish_kye_bindings custom_kye_bindings
