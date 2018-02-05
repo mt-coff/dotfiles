@@ -90,6 +90,24 @@ while true; do
   fi
 done
 
+# anyenv
+while true; do
+  echo -n "Do you use anyenv? [y/n]"
+  read ans
+  if [ -z $ans ] ; then
+    continue
+  elif [ $ans = 'y' ] || [ $ans = 'yes' ] ; then
+    git clone https://github.com/riywo/anyenv ~/.anyenv
+    git clone https://github.com/znz/anyenv-update.git ~/.anyenv/plugins/anyenv-update
+    break
+  elif [ $ans = 'n' ] || [ $ans = 'no' ]; then
+    echo "Skipped!"
+    break
+  else
+    continue
+  fi
+done
+
 # global gitignore
 ln -sf ~/dotfiles/commons/gitignore_global ~/.gitignore_global
 git config --global core.excludesfile ~/.gitignore_global
