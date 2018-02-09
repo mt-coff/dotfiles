@@ -4,3 +4,8 @@
 # Tern.js
 .tern-port
 .tern-project
+
+# envs
+.node-version
+.python-version
+.ruby-version
