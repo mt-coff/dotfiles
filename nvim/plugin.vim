@@ -26,6 +26,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'bronson/vim-trailing-whitespace'
   Plug 'Shougo/unite.vim'
   Plug 'lambdalisue/gina.vim'
+  Plug 'ryanoasis/vim-devicons'
   " color
   Plug 'altercation/vim-colors-solarized'
   " langages
@@ -50,8 +51,27 @@ colorscheme solarized
 
 "lightline
 let g:lightline = {
-  \ 'colorscheme': 'solarized'
+  \ 'colorscheme': 'solarized',
+  \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+  \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ],
+  \             [ 'gitbranch', 'readonly' ,'filename', 'modified' ] ]
+  \ },
+  \ 'component_function': {
+  \   'gitbranch': 'gina#component#repo#branch',
+  \   'filetype': 'MyFiletype',
+  \   'fileformat': 'MyFileformat'
+  \ },
   \ }
+
+function! MyFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+endfunction
+
+function! MyFileformat()
+  return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+endfunction
 
 " ALE
 let g:airline#extensions#ale#enabled = 1
