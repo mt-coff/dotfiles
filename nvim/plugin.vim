@@ -29,6 +29,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'scrooloose/nerdtree'
   Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'ryanoasis/vim-devicons'
+  Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
   " color
   Plug 'altercation/vim-colors-solarized'
   " langages
@@ -107,3 +108,6 @@ let g:deoplete#sources#ternjs#filetypes = [
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 let NERDTreeShowHidden = 1
 autocmd FileType nerdtree setlocal nolist
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
