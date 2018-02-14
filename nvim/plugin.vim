@@ -26,6 +26,8 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'bronson/vim-trailing-whitespace'
   Plug 'Shougo/unite.vim'
   Plug 'lambdalisue/gina.vim'
+  Plug 'scrooloose/nerdtree'
+  Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'ryanoasis/vim-devicons'
   " color
   Plug 'altercation/vim-colors-solarized'
@@ -100,3 +102,8 @@ let g:deoplete#sources#ternjs#filetypes = [
   \ 'javascript.jsx',
   \ 'vue',
   \ ]
+
+" NERDTree
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
+let NERDTreeShowHidden = 1
+autocmd FileType nerdtree setlocal nolist

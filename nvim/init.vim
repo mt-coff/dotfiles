@@ -21,6 +21,8 @@ set title
 set cursorline
 " 行番号表示
 set number
+" 相対行番号
+set relativenumber
 " ステータスラインを常時表示
 set laststatus=2
 " ルーラー表示
@@ -75,5 +77,3 @@ set ignorecase
 " 検索文字列のハイライト
 set hlsearch
 " 検索最後尾から先頭へ
-set wrapscan
-
