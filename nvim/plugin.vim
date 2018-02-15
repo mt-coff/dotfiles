@@ -114,7 +114,12 @@ endfunction
 " lightline-ale
 let g:lightline#ale#indicator_warnings = "\uf071"
 let g:lightline#ale#indicator_errors = "\uf05e"
-let g:lightline#ale#indicator_ok = "\uf00c"
+let g:lightline#ale#indicator_ok = "\uf05d"
+
+" ale
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = '✖'
+let g:ale_sign_warning = '❖'
 
 " neosnippet
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
