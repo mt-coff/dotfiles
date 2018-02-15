@@ -14,8 +14,7 @@ set autoindent
 set smartindent
 " シンタックスハイライトを有効に
 syntax on
-" タイトル表示系
-set notitle
+" タイトルを表示
 set title
 " 行を強調表示
 set cursorline
@@ -37,6 +36,8 @@ set nobackup
 set clipboard=unnamed,unnamedplus
 " ファイルの保存をせずに他のファイルを開けるようにする
 set hidden
+" タブラインの表示
+set showtabline=2
 " 不可視文字の可視化
 set list
 " 不可視文字の書式設定
@@ -47,6 +48,10 @@ set completeopt=menuone
 filetype plugin indent on
 " plugin.vim をロード
 source $HOME/.config/nvim/plugin.vim
+" マクロ等実行中に画面を描画しない
+set lazyredraw
+" 高速ターミナル接続
+set ttyfast
 
 "--------------------------------------------------
 " Mapping
