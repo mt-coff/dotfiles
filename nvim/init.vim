@@ -41,7 +41,7 @@ set showtabline=2
 " 不可視文字の可視化
 set list
 " 不可視文字の書式設定
-set listchars=tab:\|\ ,trail:_,eol:$,extends:>,precedes:<,nbsp:%
+set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 " 補完時はポップアップのみ設定
 set completeopt=menuone
 " ftplugin
@@ -50,8 +50,6 @@ filetype plugin indent on
 source $HOME/.config/nvim/plugin.vim
 " マクロ等実行中に画面を描画しない
 set lazyredraw
-" 高速ターミナル接続
-set ttyfast
 
 "--------------------------------------------------
 " Mapping

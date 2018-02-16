@@ -23,26 +23,27 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'cohama/lexima.vim'
   Plug 'w0rp/ale'
   Plug 'bronson/vim-trailing-whitespace'
-  Plug 'Shougo/unite.vim'
   Plug 'lambdalisue/gina.vim'
+  Plug 'Shougo/unite.vim'
   Plug 'scrooloose/nerdtree'
   Plug 'Xuyuanp/nerdtree-git-plugin'
-  Plug 'ryanoasis/vim-devicons'
   Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-  " color
-  Plug 'altercation/vim-colors-solarized'
-  " lightline
+  Plug 'szw/vim-tags'
+  Plug 'majutsushi/tagbar'
+  Plug 'ryanoasis/vim-devicons'
   Plug 'itchyny/lightline.vim'
   Plug 'taohex/lightline-buffer'
   Plug 'maximbaz/lightline-ale'
-  " langages
-  Plug 'fatih/vim-go', {'do': 'GoInstallBinaries'}
-  Plug 'zchee/deoplete-go', {'do': 'make'}
-  Plug 'mattn/emmet-vim', {'for': ['html', 'css', 'markdown', 'vue']}
-  Plug 'posva/vim-vue', {'for': 'vue'}
-  Plug 'othree/yajs.vim', {'for': 'javascript'}
-  Plug 'carlitux/deoplete-ternjs', {'do': 'npm install -g tern'}
-  Plug 'elzr/vim-json', {'for': 'json'}
+  " color
+  Plug 'altercation/vim-colors-solarized'
+  " language related
+  Plug 'fatih/vim-go',              { 'do': 'goinstallbinaries' }
+  Plug 'zchee/deoplete-go',         { 'do': 'make' }
+  Plug 'mattn/emmet-vim',           { 'for': ['html', 'css', 'markdown', 'vue'] }
+  Plug 'posva/vim-vue',             { 'for': 'vue' }
+  Plug 'othree/yajs.vim',           { 'for': 'javascript' }
+  Plug 'carlitux/deoplete-ternjs',  { 'do': 'npm install -g tern' }
+  Plug 'elzr/vim-json',             { 'for': 'json' }
 call plug#end()
 
 "==================================================
@@ -69,12 +70,12 @@ let g:lightline = {
   \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'gitbranch', 'readonly' ,'filename', 'modified' ] ],
+  \             [ 'gitbranch', 'readonly' ,'filename', 'modified', 'tagbar' ] ],
   \
   \   'right': [ [ 'lineinfo' ],
   \              [ 'percent' ],
   \              [ 'linter_errors', 'linter_warnings', 'linter_ok' ],
-  \              [ 'fileformat', 'fileencoding' ,'filetype' ]],
+  \              [ 'fileformat', 'fileencoding' ,'filetype' ] ],
   \ },
   \ 'component': {
   \   'separator': '',
@@ -100,6 +101,7 @@ let g:lightline = {
   \   'filetype': 'LLFiletype',
   \   'fileformat': 'LLFileformat',
   \   'bufferinfo': 'lightline#buffer#bufferinfo',
+  \   'tagbar': 'LLTagbar',
   \ },
   \ }
 
@@ -113,6 +115,10 @@ endfunction
 
 function! LLGitBranch()
   return ('' . ' ' . gina#component#repo#branch())
+endfunction
+
+function! LLTagbar()
+  return tagbar#currenttag('%s', '')
 endfunction
 
 " lightline-ale
@@ -158,3 +164,6 @@ autocmd FileType nerdtree setlocal nocursorline
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
+
+" vim-tags
+let g:vim_tags_auto_generate = 1
