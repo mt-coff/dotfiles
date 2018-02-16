@@ -96,7 +96,7 @@ let g:lightline = {
   \   'linter_ok': 'left',
   \ },
   \ 'component_function': {
-  \   'gitbranch': 'gina#component#repo#branch',
+  \   'gitbranch': 'LLGitBranch',
   \   'filetype': 'LLFiletype',
   \   'fileformat': 'LLFileformat',
   \   'bufferinfo': 'lightline#buffer#bufferinfo',
@@ -109,6 +109,10 @@ endfunction
 
 function! LLFileformat()
   return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+endfunction
+
+function! LLGitBranch()
+  return ('' . ' ' . gina#component#repo#branch())
 endfunction
 
 " lightline-ale
