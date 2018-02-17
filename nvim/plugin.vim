@@ -167,3 +167,6 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 
 " vim-tags
 let g:vim_tags_auto_generate = 1
+
+" emmet
+let g:user_emmet_leader_key='<C-y>'
