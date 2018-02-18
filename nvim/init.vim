@@ -68,6 +68,8 @@ nnoremap g# g#zz
 " vimrcをスペースドットで開けるように
 nnoremap <space>. :<c-u>tabedit $MYVIMRC<CR>
 
+" terminalモードからnormalモードへ
+tnoremap <silent> <ESC> <C-\><C-n>
 
 "--------------------------------------------------
 " Search
@@ -80,3 +82,4 @@ set ignorecase
 " 検索文字列のハイライト
 set hlsearch
 " 検索最後尾から先頭へ
+set wrapscan
