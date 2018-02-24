@@ -24,7 +24,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'w0rp/ale'
   Plug 'bronson/vim-trailing-whitespace'
   Plug 'lambdalisue/gina.vim'
-  Plug 'Shougo/unite.vim'
+  Plug 'Shougo/denite.nvim'
   Plug 'scrooloose/nerdtree'
   Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
