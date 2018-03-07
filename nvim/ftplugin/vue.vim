@@ -4,3 +4,6 @@ let g:ale_linters = {
 \ 'vue': ['eslint']
 \}
 let g:ale_linter_aliases = {'vue': 'css'}
+
+setlocal iskeyword+=$
+setlocal iskeyword+=-
