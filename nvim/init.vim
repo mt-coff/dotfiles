@@ -12,8 +12,6 @@ set tabstop=2
 set shiftwidth=2
 set autoindent
 set smartindent
-" シンタックスハイライトを有効に
-syntax on
 " タイトルを表示
 set title
 " 行を強調表示
@@ -48,6 +46,8 @@ set completeopt=menuone
 filetype plugin indent on
 " plugin.vim をロード
 source $HOME/.config/nvim/plugin.vim
+" シンタックスハイライトを有効に
+syntax on
 " マクロ等実行中に画面を描画しない
 set lazyredraw
 
