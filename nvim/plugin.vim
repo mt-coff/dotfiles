@@ -40,10 +40,12 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'altercation/vim-colors-solarized'
   " language related
   Plug 'fatih/vim-go',              { 'do': 'goinstallbinaries' }
+  Plug 'zchee/deoplete-jedi',       { 'for': 'python' }
   Plug 'zchee/deoplete-go',         { 'do': 'make' }
   Plug 'mattn/emmet-vim',           { 'for': ['html', 'css', 'markdown', 'vue'] }
-  Plug 'posva/vim-vue',             { 'for': 'vue' }
+  Plug 'posva/vim-vue',             { 'for': 'vue' , 'do': 'npm install -g eslint eslint-plugin-vue'}
   Plug 'othree/yajs.vim',           { 'for': 'javascript' }
+  Plug 'maxmellon/vim-jsx-pretty',  { 'for': ['javascript', 'javascript.jsx'] }
   Plug 'carlitux/deoplete-ternjs',  { 'do': 'npm install -g tern' }
   Plug 'elzr/vim-json',             { 'for': 'json' }
 call plug#end()

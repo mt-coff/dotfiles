@@ -64,6 +64,11 @@ alias mkdir='nocorrect mkdir -p'
 alias mv='nocorrect mv -i'
 alias rm='nocorrect rm -i'
 alias ln='nocorrect ln -i'
+if [[ -x `which colordiff` ]]; then
+  alias diff='colordiff -u'
+else
+  alias diff='diff -u'
+fi
 if [ uname = 'Darwin' ]; then
   alias ctags=$(brew --prefix)"/bin/ctags"
 fi

@@ -41,13 +41,15 @@ set showtabline=2
 " 不可視文字の可視化
 set list
 " 不可視文字の書式設定
-set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+set listchars=tab:»\ ,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 " 補完時はポップアップのみ設定
 set completeopt=menuone
 " ftplugin
 filetype plugin indent on
 " plugin.vim をロード
 source $HOME/.config/nvim/plugin.vim
+" pyenvのpython3を使う
+let g:python3_host_prog = $PYENV_ROOT . '/shims/python3'
 " マクロ等実行中に画面を描画しない
 set lazyredraw
 

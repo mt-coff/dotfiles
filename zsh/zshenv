@@ -45,5 +45,6 @@ path=(
   $ANDROID_HOME/tools
   $ANDROID_HOME/platform-tools
   $ANYENV_ROOT/bin(N-/)
+  $HOME/.cargo/env
   $path
 )
