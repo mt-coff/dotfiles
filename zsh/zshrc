@@ -12,7 +12,7 @@ autoload -Uz add-zsh-hook
 # completion
 #==================================================
 
-zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 #==================================================
 # colors
@@ -21,7 +21,6 @@ zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}
 export CLICOLOR=1
 export LSCOLORS=exfxcxdxbxegedabagacad
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-zstyle ':completion*' list-colors di=34 ln=35 ex=31
 
 #==================================================
 # options
@@ -38,8 +37,8 @@ setopt correct
 #==================================================
 
 export HISTFILE=~/.zhistory
-export HISTSIZE=5000
-export SAVEHIST=10000
+export HISTSIZE=10000
+export SAVEHIST=50000
 
 #==================================================
 # Key
@@ -64,20 +63,17 @@ alias mkdir='nocorrect mkdir -p'
 alias mv='nocorrect mv -i'
 alias rm='nocorrect rm -i'
 alias ln='nocorrect ln -i'
+alias F='fzf'
+
 if [[ -x `which colordiff` ]]; then
   alias diff='colordiff -u'
 else
   alias diff='diff -u'
 fi
+
 if [ uname = 'Darwin' ]; then
   alias ctags=$(brew --prefix)"/bin/ctags"
 fi
-
-#==================================================
-# yarn
-#==================================================
-
-[[ -f /usr/local/lib/node_modules/yarn-completions/node_modules/tabtab/.completions/yarn.zsh ]] && . /usr/local/lib/node_modules/yarn-completions/node_modules/tabtab/.completions/yarn.zsh
 
 #==================================================
 # anyenv
@@ -88,9 +84,59 @@ if type anyenv > /dev/null 2>&1; then
 fi
 
 #==================================================
-# Prompt
+# fzf
 #==================================================
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_OPTS="--height 40% --reverse --border --preview 'head -20 {}'"
+
+#==================================================
+# functions
+#==================================================
+
+ghc() {
+  dir=$(ghq list | fzf)
+  if [[ -n "$dir" ]]; then
+    cd "$(ghq root)/$dir"
+  fi
+}
+
+gho() {
+  dir=$(ghq list | fzf)
+  if [[ -n "$dir" ]]; then
+    open "https://$dir"
+  fi
+}
+
+#==================================================
+# zplug
+#==================================================
+
+if [ ! -e $HOME"/.zplug" ]; then
+  curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+fi
+
+source ~/.zplug/init.zsh
+
+# Plugins
+zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "zsh-users/zsh-autosuggestions"
+zplug "b4b4r07/enhancd", use:init.sh
+
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+zplug load
+
+#==================================================
+# Prompt
+#==================================================
+#
 separator=''
 
 # VIMODE setting
@@ -145,3 +191,4 @@ precmd() { vcs_info }
 PROMPT='${VIMODE}$(dir_prompt)$(git_prompt)
 $separator'
 RPROMPT='%F{blue}[%F{green}%D{%H:%M:%S}%F{blue}]%f'
+

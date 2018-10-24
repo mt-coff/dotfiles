@@ -24,13 +24,18 @@ fi
 #==================================================
 
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+
+#==================================================
+# JAVA & Android
+#==================================================
+
 export ANDROID_HOME=$HOME/Library/Android/sdk
 
 #==================================================
 # GO
 #==================================================
 
-export GOPATH=$HOME/dev/go
+export GOPATH=$HOME/.ghq
 
 #==================================================
 # Path
@@ -38,7 +43,6 @@ export GOPATH=$HOME/dev/go
 
 path=(
   /usr/local/{bin,sbin}(N-/)
-  /usr/local/bin/powerline
   $GOPATH/bin(N-/)
   $JAVA_HOME(N-/)
   $ANDROID_HOME/bin(N-/)
@@ -48,3 +52,10 @@ path=(
   $HOME/.cargo/env
   $path
 )
+
+if [ $(uname) = "SunOS" ]; then
+  path=(
+    /usr/local/{bin,sbin}(N-/)
+    $path
+  )
+fi
