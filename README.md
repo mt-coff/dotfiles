@@ -1,7 +1,8 @@
 # dotfiles
 
 ### note
-'''sh
+
+``` sh
 npm install -g vue-language-server
 npm install -g javascript-typescript-langserver
-'''
+```
