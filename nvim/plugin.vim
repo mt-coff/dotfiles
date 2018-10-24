@@ -25,16 +25,12 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'bronson/vim-trailing-whitespace'
   Plug 'lambdalisue/gina.vim'
   Plug 'Shougo/denite.nvim'
-  Plug 'scrooloose/nerdtree'
-  Plug 'Xuyuanp/nerdtree-git-plugin'
-  Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
   Plug 'szw/vim-tags'
   Plug 'majutsushi/tagbar'
-  Plug 'ryanoasis/vim-devicons'
   Plug 'itchyny/lightline.vim'
   Plug 'taohex/lightline-buffer'
   Plug 'maximbaz/lightline-ale'
-  Plug 'autozimu/LanguageClient-neovim', { 'commit':  '7d0a5cc', 'do': 'bash install.sh' }
+  Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
   Plug 'Shougo/context_filetype.vim'
   " color
   Plug 'altercation/vim-colors-solarized'
@@ -46,7 +42,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'posva/vim-vue',             { 'for': 'vue' , 'do': 'npm install -g eslint eslint-plugin-vue'}
   Plug 'othree/yajs.vim',           { 'for': 'javascript' }
   Plug 'maxmellon/vim-jsx-pretty',  { 'for': ['javascript', 'javascript.jsx'] }
-  Plug 'carlitux/deoplete-ternjs',  { 'do': 'npm install -g tern' }
   Plug 'elzr/vim-json',             { 'for': 'json' }
 call plug#end()
 
@@ -127,11 +122,11 @@ let g:lightline = {
   \ }
 
 function! LLFiletype()
-  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
 endfunction
 
 function! LLFileformat()
-  return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+  return winwidth(0) > 70 ? (&fileformat) : ''
 endfunction
 
 function! LLGitBranch()
@@ -143,9 +138,9 @@ function! LLTagbar()
 endfunction
 
 " for lightline-ale
-let g:lightline#ale#indicator_warnings = "\uf071"
-let g:lightline#ale#indicator_errors = "\uf05e"
-let g:lightline#ale#indicator_ok = "\uf05d"
+let g:lightline#ale#indicator_warnings = "❖"
+let g:lightline#ale#indicator_errors = "✖"
+let g:lightline#ale#indicator_ok = "○"
 
 " for ale
 let g:ale_sign_column_always = 1
@@ -160,28 +155,6 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#enable_completed_snippet = 1
 let g:neosnippet#expand_word_boundary = 1
 let g:neosnippet#snippets_directory='~/.vim/plugged/vim-snippets/snippets'
-
-" for deoplete-ternjs
-let g:deoplete#sources#ternjs#filetypes = [
-  \ 'jsx',
-  \ 'javascript.jsx',
-  \ 'vue',
-  \ ]
-
-" for NERDTree
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
-let NERDTreeShowHidden = 1
-autocmd FileType nerdtree setlocal nolist
-autocmd FileType nerdtree setlocal nocursorline
-let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
-
-" for vim-tags
-let g:vim_tags_auto_generate = 1
-
-" for emmet
-let g:user_emmet_leader_key='<C-y>'
 
 " for LanguageClient-neovim
 let g:LanguageClient_serverCommands = {
