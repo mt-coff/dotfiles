@@ -12,8 +12,6 @@ set tabstop=2
 set shiftwidth=2
 set autoindent
 set smartindent
-" シンタックスハイライトを有効に
-syntax on
 " タイトルを表示
 set title
 " 行を強調表示
