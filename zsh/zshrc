@@ -3,7 +3,7 @@
 #==================================================
 
 autoload -Uz colors && colors
-autoload -Uz compinit && compinit
+# autoload -Uz compinit && compinit
 autoload -Uz promptinit && promptinit
 autoload -Uz vcs_info && vcs_info
 autoload -Uz add-zsh-hook
@@ -80,7 +80,7 @@ fi
 #==================================================
 
 if type anyenv > /dev/null 2>&1; then
-  eval "$(anyenv init -)"
+  eval "$(anyenv init - --no-rehash)"
 fi
 
 #==================================================
@@ -88,6 +88,7 @@ fi
 #==================================================
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='ag --nocolor --hidden -g ""'
 export FZF_DEFAULT_OPTS="--height 40% --reverse --border --preview 'head -20 {}'"
 
 #==================================================
@@ -123,72 +124,18 @@ zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-autosuggestions"
 zplug "b4b4r07/enhancd", use:init.sh
+zplug "mafredri/zsh-async"
+zplug "sindresorhus/pure"
 
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
+
+# if ! zplug check --verbose; then
+#     printf "Install? [y/N]: "
+#     if read -q; then
+#         echo; zplug install
+#     fi
+# fi
 
 zplug load
 
-#==================================================
-# Prompt
-#==================================================
-#
-separator=''
-
-# VIMODE setting
-VIMODE="%K{green}%F{white} INSERT %f%k"
-function zle-keymap-select {
-  VINORMAL="%K{yellow}%F{white} NORMAL %f%k"
-  VIINSERT="%K{green}%F{white} INSERT %f%k"
-  VIMODE="${${KEYMAP/vicmd/$VINORMAL}/(main|viins)/$VIINSERT}"
-  zle reset-prompt
-  VIMODE="%K{green}%F{white} INSERT %f%k"
-}
-zle -N zle-keymap-select
-
-function name_prompt {
-  echo "%K{black}%F{red}@%F{black}%n %f%k"
-}
-
-function dir_prompt {
-  echo "%K{blue}%F{white}${separator} %(5~,%-2~...%2~,%~) %f%k"
-}
-
-function _update_vcs_info_msg() {
-  psvar=()
-  LANG=en_US.UTF-8 vcs_info
-  [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
-}
-
-add-zsh-hook precmd _update_vcs_info_msg
-
-function git_prompt {
-  if [[ "$PWD" =~ '/\.git(/.*)?$' ]]; then
-    echo "%F{black}${separator}%f"
-    return 1
-  fi
-  if [[ $(command git rev-parse --is-inside-work-tree 2> /dev/null) != 'true' ]]; then
-    echo "%F{black}${separator}%f"
-    return 1
-  fi
-  echo "%K{green}%F{white}${separator} ${vcs_info_msg_0_} %f%k%F{green}${separator}%f"
-}
-
-zstyle ':vcs_info:*' max-exports 3
-zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:git:*' formats ' %b %c%u'
-zstyle ':vcs_info:git:*' actionformats ' %b %a%c%u'
-zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr "+"
-zstyle ':vcs_info:git:*' unstagedstr "-"
-
-precmd() { vcs_info }
-
-PROMPT='${VIMODE}$(dir_prompt)$(git_prompt)
-$separator'
-RPROMPT='%F{blue}[%F{green}%D{%H:%M:%S}%F{blue}]%f'
-
+# compile
+[[ ! -f ~/.zshrc.zwc || ~/.zshrc -nt ~/.zshrc.zwc ]] && zcompile ~/.zshrc
