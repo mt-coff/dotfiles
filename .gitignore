@@ -1,8 +1,5 @@
 .DS_Store
 .netrwhist
-vim/plugged
-vim/view
+.vim/plugged
+.vim/view
 nvim/plugged
-fish/*
-!fish/functions
-!fish/config.fish
