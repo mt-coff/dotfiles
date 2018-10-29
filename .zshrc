@@ -51,18 +51,9 @@ bindkey -M viins 'jj' vi-cmd-mode
 # Aliases
 #==================================================
 
-alias _=sudo
 alias g='git'
-alias gco='git checkout'
-alias l='ls'
 alias la='ls -a'
 alias ll='ls -l'
-alias cd='nocorrect cd'
-alias cp='nocorrect cp -i'
-alias mkdir='nocorrect mkdir -p'
-alias mv='nocorrect mv -i'
-alias rm='nocorrect rm -i'
-alias ln='nocorrect ln -i'
 alias F=' | fzf'
 
 if [[ -x `which colordiff` ]]; then

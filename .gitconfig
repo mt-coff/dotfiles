@@ -1,0 +1,14 @@
+[core]
+	excludesfile = ~/.gitignore_global
+
+[alias]
+	d = diff
+	co = checkout
+
+[user]
+	name = mt-coff
+	email = mt.coff.00@gmail.com
+
+[ghq]
+	root = ~/.ghq/src
+

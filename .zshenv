@@ -32,7 +32,7 @@ export ANDROID_HOME=$HOME/Library/Android/sdk
 
 # GO
 
-export GOPATH=$HOME
+export GOPATH=$HOME/.ghq
 
 # Path
 
