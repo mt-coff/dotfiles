@@ -28,10 +28,12 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'szw/vim-tags'
   Plug 'majutsushi/tagbar'
   Plug 'itchyny/lightline.vim'
-  Plug 'taohex/lightline-buffer'
+  Plug 'taohexxx/lightline-buffer'
   Plug 'maximbaz/lightline-ale'
   Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
   Plug 'Shougo/context_filetype.vim'
+  Plug '/usr/local/opt/fzf'
+  Plug 'junegunn/fzf.vim'
   " color
   Plug 'altercation/vim-colors-solarized'
   " language related
@@ -43,6 +45,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'othree/yajs.vim',           { 'for': 'javascript' }
   Plug 'maxmellon/vim-jsx-pretty',  { 'for': ['javascript', 'javascript.jsx'] }
   Plug 'elzr/vim-json',             { 'for': 'json' }
+  Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
 call plug#end()
 
 "==================================================
@@ -167,3 +172,8 @@ let g:LanguageClient_serverCommands = {
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+" fzf
+nmap <space>b :Buffers<CR>
+nmap <space>f :Files<CR>
+nmap <space>gf :GFiles<CR>
+

@@ -6,7 +6,7 @@ DOTFILES   := $(filter-out $(EXC), $(CANDIDATES))
 all: start link install restart
 
 start:
-	@echo $(DOTROOT/aa)
+	@echo "mt_coff"
 
 .PHONY: link
 link:
