@@ -4,6 +4,7 @@
 [alias]
 	d = diff
 	co = checkout
+  s = status
 
 [user]
 	name = mt-coff
