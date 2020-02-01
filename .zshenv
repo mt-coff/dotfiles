@@ -15,10 +15,10 @@ export LESS='-F -g -i -M -R -S -w -X -z-4'
 
 # anyenv
 
-export ANYENV_ROOT=$HOME/.anyenv
+export ANYENV_DEFINITION_ROOT=$HOME/.anyenv
 
 if [ -d $HOME/.anyenv ]; then
-  for D in `ls $ANYENV_ROOT/envs`
+  for D in `ls $ANYENV_DEFINITION_ROOT/envs`
   do
     export PATH=$HOME/.anyenv/envs/$D/shims:$PATH
   done
@@ -27,7 +27,6 @@ fi
 
 # JAVA & Android
 
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 export ANDROID_HOME=$HOME/Library/Android/sdk
 
 # GO
