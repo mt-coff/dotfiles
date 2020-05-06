@@ -3,7 +3,7 @@
 #==================================================
 
 autoload -Uz colors && colors
-# autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit
 autoload -Uz promptinit && promptinit
 autoload -Uz vcs_info && vcs_info
 autoload -Uz add-zsh-hook
@@ -79,12 +79,17 @@ fi
 #==================================================
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 export FZF_DEFAULT_COMMAND='ag --nocolor --hidden -g ""'
 export FZF_DEFAULT_OPTS="--height 40% --reverse --border --preview 'head -20 {}'"
 
 #==================================================
 # functions
 #==================================================
+
+mt() {
+  cd $(ghq root)/github.com/mt-coff
+}
 
 ghcd() {
   dir=$(ghq list | fzf)
@@ -119,14 +124,17 @@ zplug "mafredri/zsh-async"
 zplug "sindresorhus/pure"
 
 
-# if ! zplug check --verbose; then
-#     printf "Install? [y/N]: "
-#     if read -q; then
-#         echo; zplug install
-#     fi
-# fi
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
 
 zplug load
 
+#==================================================
 # compile
+#==================================================
+
 [[ ! -f ~/.zshrc.zwc || ~/.zshrc -nt ~/.zshrc.zwc ]] && zcompile ~/.zshrc

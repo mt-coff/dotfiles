@@ -25,13 +25,14 @@ if [ -d $HOME/.anyenv ]; then
 
 fi
 
-# JAVA & Android
+# Android
 
 export ANDROID_HOME=$HOME/Library/Android/sdk
 
 # GO
 
 export GOPATH=$HOME/.ghq
+export GO111MODULE=auto
 
 # Path
 
@@ -40,7 +41,6 @@ typeset -gU cdpath fpath mailpath path
 path=(
   /usr/local/{bin,sbin}(N-/)
   $GOPATH/bin(N-/)
-  $JAVA_HOME(N-/)
   $ANDROID_HOME/bin(N-/)
   $ANDROID_HOME/tools
   $ANDROID_HOME/platform-tools
@@ -49,9 +49,3 @@ path=(
   $path
 )
 
-if [ $(uname) = "SunOS" ]; then
-  path=(
-    /usr/local/{bin,sbin}(N-/)
-    $path
-  )
-fi
