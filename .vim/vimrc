@@ -1,0 +1,47 @@
+set encoding=utf-8
+set fileencoding=utf-8
+set termencoding=utf-8
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set autoindent
+set smartindent
+set title
+set cursorline
+set number
+set relativenumber
+set laststatus=2
+set ruler
+set nowrap
+set noswapfile
+set nobackup
+set clipboard=unnamed,unnamedplus
+set hidden
+set showtabline=2
+set list
+set listchars=tab:»\ ,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+set completeopt=menuone
+filetype plugin indent on
+set incsearch
+set ignorecase
+set hlsearch
+set wrapscan
+
+if $HOME != $USERPROFILE && $GIT_EXEC_PATH != ''
+  finish
+end
+
+if has('vim_starting')
+  set rtp+=~/.vim/plugged/vim-plug
+  if empty(glob('~/.vim/autoload/plug.vim'))
+    echo 'install vim-plug...'
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  end
+endif
+
+source $HOME/.vim/plugin-list.vim
+
+call map(sort(split(globpath(&runtimepath, '_config/*.vim'))), {->[execute('exec "so" v:val')]})
+
