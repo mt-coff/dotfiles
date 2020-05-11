@@ -1,5 +1,5 @@
 " fzf
- if empty(globpath(&rtp, 'plugged/fzf.vim'))
+ if empty(globpath(&rtp, 'autoload/fzf'))
   finish
 endif
 

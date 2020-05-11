@@ -34,6 +34,9 @@ export ANDROID_HOME=$HOME/Library/Android/sdk
 export GOPATH=$HOME/.ghq
 export GO111MODULE=auto
 
+# Rust
+export CARGO_HOME=$HOME/.cargo
+
 # Path
 
 typeset -gU cdpath fpath mailpath path
@@ -45,6 +48,7 @@ path=(
   $ANDROID_HOME/tools
   $ANDROID_HOME/platform-tools
   $ANYENV_ROOT/bin(N-/)
+  $CARGO_HOME/bin(N-/)
   $HOME/.cargo/env
   $path
 )
