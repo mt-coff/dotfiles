@@ -20,5 +20,6 @@ Plug 'tyru/open-browser.vim'
 Plug 'tyru/open-browser-github.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'TaDaa/vimade'
+Plug 'prettier/vim-prettier', {'do': 'yarn install'}
 call plug#end()
 
