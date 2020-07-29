@@ -20,6 +20,9 @@ Plug 'tyru/open-browser.vim'
 Plug 'tyru/open-browser-github.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'TaDaa/vimade'
+Plug 'mattn/vim-sonictemplate'
+Plug 'mattn/vim-goimports'
 Plug 'prettier/vim-prettier', {'do': 'yarn install'}
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 
