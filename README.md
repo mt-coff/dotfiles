@@ -1,15 +1,22 @@
-# dotfiles
+# Dotfiles
 
-### Usage
-```sh
-$ make all
-```
-
-### Note
-
-If you use Vue.js, plz execute below commands.
+## Installation
 
 ```sh
-$ npm install -g vue-language-server
-$ npm install -g javascript-typescript-langserver
+$ curl -sL -o --create-dirs ~/.config/chezmoi/chezmoi.toml "https://raw.githubusercontent.com/mt-coff/dotfiles/master/dot_config/chezmoi/chezmoi.toml"
+$ sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply mt-coff
 ```
+
+## Tools
+
+- Alacritty
+- Neovim
+- asdf
+- ghq
+- fzf
+- tmux
+- chezmoi
+
+## Fonts
+
+- HackGen35Nerd Console

@@ -1,0 +1,19 @@
+[core]
+  editor = nvim
+  excludesfile = ~/.gitignore_global
+  pager = less -r
+
+[alias]
+  d = diff
+  co = checkout
+  s = status
+  
+[user]
+  name = mt-coff
+  email = mt.coff.00@gmail.com
+
+[ghq]
+   root = ~/.ghq/src
+
+[commit]
+  template = ~/.commit_template
